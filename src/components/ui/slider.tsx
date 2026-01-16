@@ -25,7 +25,7 @@ const rangeVariants = cva(
 );
 
 const thumbVariants = cva(
-  "glass-morph h-4 w-4 rounded-full duration-350 transition-all ease-out shadow-[var(--shadow-inset)] focus-visible:outline-none focus-visible:shadow-[var(--shadow-raised)]",
+  "glass-morph h-4 w-4 mt-[1px] rounded-full duration-350 transition-all ease-out shadow-[var(--shadow-inset)] focus-visible:outline-none focus-visible:shadow-[var(--shadow-raised)]",
   {
     variants: {
       variant: {
@@ -40,7 +40,7 @@ const thumbVariants = cva(
 );
 
 interface SliderProps
-  extends useRender.ComponentProps<"div">,
+  extends useRender.ComponentProps<typeof BaseSlider.Root>,
     VariantProps<typeof rangeVariants> {}
 
 export default function Slider(props: SliderProps) {

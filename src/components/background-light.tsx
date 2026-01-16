@@ -36,13 +36,13 @@ const BackgroundLight = () => {
         style={{
           backgroundColor: color_left,
         }}
-        className="absolute -top-24 flex-1 right-44 h-125 w-125 rounded-full blur-[10rem] xl:w-275"
+        className="fixed -top-24 flex-1 right-44 h-125 w-125 rounded-full blur-[10rem] xl:w-275"
       ></motion.div>
       <motion.div
         style={{
           backgroundColor: color_right,
         }}
-        className=" absolute -top-4 flex-1 -left-140 h-125 w-200 rounded-full blur-[10rem] sm:w-275 md:-left-132 lg:-left-112 xl:-left-60 2xl:-left-20"
+        className="fixed -top-4 flex-1 -left-140 h-125 w-200 rounded-full blur-[10rem] sm:w-275 md:-left-132 lg:-left-112 xl:-left-60 2xl:-left-20"
       ></motion.div>
     </>
   );
