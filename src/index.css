@@ -10,6 +10,11 @@
   --color-warning: var(--color-orange-600);
   --color-muted: var(--color-zinc-300);
   --color-muted-foreground: var(--color-zinc-600);
+  --color-accent: var(--color-zinc-400);
+  --color-accent-foreground: var(--color-zinc-950);
+  --color-popover-foreground: var(--color-zinc-950);
+  --color-input: var(--color-zinc-300);
+  --color-ring: var(--color-purple-500);
 
   --shadow-primary: 1px 3px 6px 2px var(--color-primary),
     -1px 3px 6px 2px var(--color-primary);
@@ -17,6 +22,9 @@
   --color-border: var(--color-zinc-200);
   --color-shadow: var(--color-red-600);
   --color-highlight: rgba(255, 255, 255, 1);
+  
+  --radius-sm: calc(var(--radius-md) - 4px);
+  --radius-md: 0.5rem;
 }
 
 @layer theme {
@@ -28,6 +36,11 @@
     --color-warning: var(--color-orange-400);
     --color-muted: var(--color-zinc-700);
     --color-muted-foreground: var(--color-zinc-400);
+    --color-accent: var(--color-zinc-800);
+    --color-accent-foreground: var(--color-zinc-100);
+    --color-popover-foreground: var(--color-zinc-100);
+    --color-input: var(--color-zinc-800);
+    --color-ring: var(--color-purple-400);
 
     --color-border: var(--color-zinc-950);
     --color-shadow: var(--color-red-600);
@@ -64,7 +77,10 @@
 @layer components {
   .glass-morph {
     @apply backdrop-blur-md border border-foreground/5 shadow-md inset-shadow-sm inset-shadow-white/90 overflow-hidden before:content-[''] before:absolute before:inset-0 before:pointer-events-none before:bg-radial-[at_100%_0%] before:from-white/40 before:via-white/10 before:to-transparent before:opacity-40;
-    /* @apply backdrop-blur-[2px] bg-white/5 border border-white/10 shadow-sm shadow-black/5 overflow-hidden relative before:content-['']  before:absolute before:inset-0  before:pointer-events-none before:bg-[radial-gradient(ellipse_at_95%_5%,rgba(255,255,255,0.18)_0%,transparent_60%)] before:opacity-40; */
+  }
+  
+  .glass-morph-popup {
+    @apply backdrop-blur-md border border-foreground/5 shadow-xl overflow-hidden;
   }
 }
 
@@ -83,4 +99,88 @@
   animation: caret-blink infinite ease-out alternate 1.5s;
   caret-color: var(--color-primary);
   caret-animation: manual;
+}
+
+@keyframes slide-in-from-top-2 {
+  from {
+    transform: translateY(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-bottom-2 {
+  from {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-left-2 {
+  from {
+    transform: translateX(-8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-from-right-2 {
+  from {
+    transform: translateX(8px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-out-95 {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
 }

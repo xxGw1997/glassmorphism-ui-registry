@@ -17,6 +17,15 @@ import Progress from "./ui/progress";
 import Switch from "./ui/switch";
 import Slider from "./ui/slider";
 import { Tabs, List, Tab, Indicator } from "./ui/tabs";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 
 const TOTAL_TIME = 329;
 const revenueData = [
@@ -58,7 +67,7 @@ function App() {
   const toggleSinger = (value: "pipi" | "shamila") => {
     setSinger(value);
     setTime(0);
-    setIsPlay(false)
+    setIsPlay(false);
     if (intervalRef.current) clearInterval(intervalRef.current);
   };
 
@@ -320,6 +329,21 @@ function App() {
                 </div>
                 <Switch className="shrink-0" />
               </div>
+              <Select items={items}>
+                <SelectTrigger className="w-full max-w-48">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Fruits</SelectLabel>
+                    {items.map((item) => (
+                      <SelectItem key={item.value} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </CardContent>
             <CardFooter>
               <Button>Save Preferences</Button>
@@ -330,5 +354,20 @@ function App() {
     </main>
   );
 }
+
+const items = [
+  {
+    label: "Select",
+    value: null,
+  },
+  {
+    label: "Option A",
+    value: "a",
+  },
+  {
+    label: "Option B",
+    value: "b",
+  },
+];
 
 export default App;
